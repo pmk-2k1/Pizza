@@ -1,0 +1,46 @@
+<section class="container">
+  <div class="row">
+    <h2 class="welcome_user">Xin chào <b><%=current_user.full_name%></b></h2>
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card-body p-sm-4">
+        <%= form_with model: @user do |form| %>
+          <div class="form-floating mb-3">
+            <%= form.text_field :full_name, placeholder: "Username", class: "form-control"%>
+            <%= form.label :full_name, "Họ và tên"%>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.phone_field :phone_number, placeholder: "Phone Number", class: "form-control"%>
+            <%= form.label :phone_number, "Số điện thoại"%>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.text_field :address, placeholder: "Address", class: "form-control"%>
+            <%= form.label :address, "Địa chỉ"%>
+          </div>
+          <div class="d-grid mb-2">
+            <%= form.submit "Cập nhật thông tin", class:"btn btn-lg btn-primary btn-login fw-bold text-uppercase" %>
+          </div>
+        <% end %>
+        <%= form_for(user, as: current_user, url: registration_path(current_user), html: { method: :put }) do |form| %>
+          <%= render "devise/shared/error_messages", resource: user %>
+          <div class="form-floating mb-3">
+            <%= form.password_field :current_password, placeholder: "Password", class: "form-control"%>
+            <%= form.label :current_password, "Nhập mật khẩu hiện tại"%>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.password_field :password, placeholder: "New Password", class: "form-control"%>
+            <%= form.label :password do %>
+              Nhập mật khẩu mới  <span>(ít nhất 6 ký tự)</span>
+            <% end %>
+          </div>
+          <div class="form-floating mb-3">
+            <%= form.password_field :password_confirmation, placeholder: "Confirm New Password", class: "form-control"%>
+            <%= form.label :password_confirmation, "Xác nhận mật khẩu mới"%>
+          </div>
+          <div class="d-grid mb-2">
+            <%= form.submit "Cập nhật mật khẩu", class:"btn btn-lg btn-primary btn-login fw-bold text-uppercase" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>

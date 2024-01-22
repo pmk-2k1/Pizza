@@ -1,0 +1,37 @@
+<section class="dashboard">
+  <%= render 'admin/nav_left' %>
+  <div class="admin_user">
+    <div class="admin-form-edit">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Hình</th>
+            <th scope="col">Loại sản phẩm</th>
+            <th scope="col">Tên sản phẩm</th>
+            <th scope="col">Mô tả sản phẩm</th>
+            <th scope="col">Size</th>
+            <th scope="col">Giá</th>
+            <th scope="col"><%=button_to "Thêm món",new_admin_product_path, method: :get, class: "new_product"%>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <%@dashboard_admin_products.each do |product|%>
+            <tr>
+              <td class ="image_product"><%= image_tag(product.image_product.url)%></td>
+              <td><%=product.category%></td>
+              <td><%=product.name%></td>
+              <td><%=product.description%></td>
+              <td><%=product.size%></td>
+              <td><%=product.price_prodcut%></td>
+              <td class="button-user">
+                <%=button_to "Chỉnh sửa",edit_admin_product_path(product.id), method: :get, class:"admin_edit"%>
+                <%=button_to "Xóa", admin_product_path(product.id), method: :delete, class: "admin_destroy", data:{confirm: "Are you sure?" }%>
+              </td>
+            </tr>
+          <%end%>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>

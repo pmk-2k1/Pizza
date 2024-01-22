@@ -1,0 +1,29 @@
+<!-- This snippet uses Font Awesome 5 Free as a dependency. You can download it at fontawesome.io! -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-9 mx-auto">
+      <div class="card flex-row my-5 border-0 shadow rounded-3 overflow-hidden">
+        <div class="card-img-left d-none d-md-flex">
+          <!-- Background image for card set in CSS! -->
+        </div>
+        <div class="card-body p-4 p-sm-5">
+          <h2 class="card-title text-center mb-4 fw-light">Đăng nhập</h2>
+          <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+            <div class="form-floating mb-3">
+              <%= f.phone_field :phone_number, autofocus: true, placeholder: "Phone Number", class: "form-control"%>
+              <%= f.label :phone_number, "Số điện thoại"%>
+            </div>
+            <div class="form-floating mb-3">
+              <%= f.password_field :password, autocomplete: "current-password", placeholder: "Password", class: "form-control"%>
+              <%= f.label :password, "Mật khẩu"%>
+            </div>
+            <div class="d-grid mb-2">
+              <%= f.submit "Đăng nhập", class:"btn btn-lg btn-primary btn-login fw-bold text-uppercase"%>
+            </div>
+            <%= render "devise/shared/links" %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<header>
+  <div class="container">
+    <div class="top-wrap">
+      <div class="left-wrap">
+        <div class="logo"></div>
+      </div>
+      <div class="mid-wrap">
+        <p>
+          <i class="fas fa-phone"></i>
+          <span>Hotline: 0979 259 173</span>
+        </p>
+      </div>
+      <div class="right-wrap">
+        <% if user_signed_in? %>
+          <div class="dropdown">
+            <p>Chào mừng <span><%=current_user.full_name%></span></p>
+            <div class="dropdown-options">
+              <%= link_to "Thông tin tài khoản", edit_user_path( current_user.id)%>
+              <a href="#">Lịch sử đơn hàng</a>
+              <%if current_user.admin?%>
+                <%= link_to "Trang quản lý",admin_users_path, method: :get%>
+              <%end%>
+              <%=link_to "Đăng xuất", destroy_user_session_path, method: :delete, data: {turbo_method: :delete }%>
+            </div>
+          </div>
+        <% else %>
+          <p class="devise"><%= link_to "Đăng nhập ", new_user_session_path	%>/<%= link_to " Tạo tài khoản", new_user_registration_path%></p>
+        <% end %>
+      </div>
+    </div>
+    <div class="bot-wrap">
+      <div class="left-wrap">
+        <ul class="menu">
+          <li><%= link_to "Gà rán", root_path, method: :get%></li>
+          <li><%= link_to "Mì ý", spaghetti_path, method: :get%></li>
+          <li><%= link_to "Pizza", pizza_path, method: :get%></li>
+          <li><%= link_to "Nước", water_path, method: :get%></li>
+          <li><%= link_to "Combo", combo_path, method: :get%></li>
+        </ul>
+      </div>
+      <div class="right-wrap">
+        <a href="#"><i class="fas fa-shopping-cart"></i> Giỏ hàng</a>
+        <div class="count">0</div>
+      </div>
+      <div class="clear"></div>
+    </div>
+  </div>
+</header>

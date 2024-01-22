@@ -1,0 +1,35 @@
+<div class="container">
+  <h2>Chỉnh sửa món ăn</h2>
+  <hr>
+  <div class="add_product">
+    <%= form_with model: @dashboard_admin_products do |form| %>
+      <div class="category">
+        <%=form.label :category %>
+        <%=form.select :category, Product.categories.keys%>
+      </div>
+      <div class="name">
+        <%=form.label :name %>
+        <%=form.text_field :name, size: "40"%>
+      </div>
+      <div class= "description">
+        <%= form.label :description %>
+        <%=form.text_field :description, size: "40"%>
+      </div>
+      <div class="size">
+        <%=form.label :size %>
+        <%=form.select :size, Product.sizes.keys%>
+      </div>
+      <div class="price_prodcut">
+        <%=form.label :price_prodcut %>
+        <%=form.text_field :price_prodcut, size: "40"%>
+      </div>
+      <div class="button_outer">
+        <div class= "image">
+          <%= form.file_field :image_product, accept: "image/jpeg, image/gif, image/png, image/jpg", id: "upload_image" %>
+          <i class="fas fa-plus"></i>
+        </div>
+      </div>
+      <%= form.submit "Cập nhật thông tin", class:"btn btn-lg btn-primary btn-login fw-bold text-uppercase" %>
+    <% end %>
+  </div>
+</div>
