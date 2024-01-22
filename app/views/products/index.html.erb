@@ -3,78 +3,20 @@
     <h2>Gà rán</h2>
     <hr>
     <div class="product">
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
+      <%@product.each do |produc|%>
+        <div class="chicken">
+          <%=image_tag(produc.image_product.url) %>
+          <div class="content">
+            <p class="name"><%= produc.name%> <span>(<%= produc.size%>)</span></p>
+            <p class="description"><%=produc.description%></p>
+            <div class="price_product">
+              <p class="price">Giá: <br>
+                <span><%=produc.price_prodcut%>đ</span></p>
+              <button>Them vao gio</button>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
-          </div>
-        </div>
-      </div>
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
-          </div>
-        </div>
-      </div>
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
-          </div>
-        </div>
-      </div>
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
-          </div>
-        </div>
-      </div>
-      <div class="chicken">
-        <%=image_tag("pizza")%>
-        <div class="content">
-          <p class="name">Pizza Hai San <span>(Size nho)</span></p>
-          <p class="description">Tôm, thanh cua, mực và bông cải xanh tươi ngon trên nền sốt Pesto Xanh</p>
-          <div class="price_product">
-            <p class="price">Giá: <br>
-              <span>169.000đ</span></p>
-            <button>Them vao gio</button>
-          </div>
-        </div>
-      </div>
+      <%end%>
     </div>
   </div>
 </section>
